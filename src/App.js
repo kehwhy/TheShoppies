@@ -1,4 +1,4 @@
-import { Position, SideSheet } from 'evergreen-ui';
+import { Dialog, Position, SideSheet } from 'evergreen-ui';
 import React, { useState } from 'react';
 import './App.css';
 import ConfettiContainer from './features/ConfettiContainer/ConfettiContainer'
@@ -14,13 +14,17 @@ function App() {
     <div className="App">
       <ConfettiContainer />
       <img className="App_heading" src={title} alt="The Shoppies"></img>
-      <SideSheet
+      <Dialog
+        className="App_dialogue"
+        title="Nominees"
         position={Position.RIGHT}
         isShown={isShown}
         onCloseComplete={() => setIsShown(false)}
+        hasFooter={false}
+        hasHeader={false}
       >
         <NomineeList/>
-      </SideSheet>
+      </Dialog>
       <div className="App_review_button_wrapper">
       <button
       height={38}

@@ -9,8 +9,7 @@ const NomineeList = () => {
     const dispatch = useDispatch()
 
     return (
-        <div className="NomineeList" style={{height:`${window.innerHeight}px`}}>
-            <Heading className="NomineeList_title" size={700}>Nominees</Heading>
+        <div className="NomineeList">
             {nominees.length
             ? <div>
                 <Table className="NomineeList_table">
@@ -19,13 +18,11 @@ const NomineeList = () => {
                     <Table.Row key={nominee.imdbID}>
                         <Table.TextCell>{nominee.Title}</Table.TextCell>
                         <Table.TextCell>{nominee.Year}</Table.TextCell>
-                        <Table.TextCell width={50}>
+                        <Table.TextCell >
                             <div className="NomineeList_remove_button_wrapper">
                                 <button 
                                 className="NomineeList_remove_button"
-                                onClick={() => dispatch(removeNominee(nominee))} 
-                                icon={MinusIcon}
-                                height={24}
+                                onClick={() => dispatch(removeNominee(nominee))}
                                 >Remove</button>
                             </div>
                         </Table.TextCell>
