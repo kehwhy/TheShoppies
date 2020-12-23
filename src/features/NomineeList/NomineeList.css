@@ -1,8 +1,7 @@
-@import "../../root.css";
 
 .NomineeList {
     width: 100%;
-    background-color: var(--lightblue);
+    background-color: var(--blue);
     color: var(--white);
 }
 
@@ -13,6 +12,7 @@
 
 .NomineeList_empty{
     padding: 25px;
+    color: var(--white);
 }
 
 .NomineeList_table {
@@ -25,7 +25,22 @@
 }
 
 .NomineeList_remove_button {
-    border-radius: 25px;
+    height: 18px;
+    font-size: 12px;
+    padding: 10px;
+    color: var(--white);
+    border: 1px solid var(--white);
+    transition: 0.2s background-color;
+}
+
+.NomineeList_remove_button:hover {
+    background-color: var(--navy);
+    border: 1px solid var(--navy);
+    color: var(--white);
+}
+
+.NomineeList_remove_button:active {
+    box-shadow: inset 0 0 5px #000000
 }
 
 .NomineeList_clear_button_wrapper {
@@ -33,11 +48,18 @@
 }
 
 .NomineeList_clear_button {
-    border-radius: 25px;
-    height: 24px;
-    background-color: var(--red)
+    padding: 20px;
+    color: var(--white);
+    border: 1px solid var(--white);
+    transition: 0.2s background-color;
 }
 
 .NomineeList_clear_button:hover {
-    background-color: var(--red)
+    background-color: var(--navy);
+    border: 1px solid var(--navy);
+    color: var(--white);
+}
+
+.NomineeList_clear_button:active {
+    box-shadow: inset 0 0 5px #000000
 }

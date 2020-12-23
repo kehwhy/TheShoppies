@@ -1,24 +1,14 @@
-@import "./root.css";
+@import './root.css';
 
 .App {
   text-align: center;
   justify-content: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
 .App_heading {
   width: 35%;
   padding: 50px;
   padding-bottom: 10px;
-}
-
-.App_review_button {
-  text-align: center;
-  border-radius: 25px;
 }
 
 .App_review_button_wrapper {
@@ -42,4 +32,39 @@
   100% {
     transform: translateY(0px)
   }
+}
+
+button {
+  border-radius: 25px;
+  height: 28px;
+  background-color: transparent;
+  display: inline-flex;
+  align-items: center;
+  color: var(--white);
+  border: 1px solid var(--white);
+  transition: 0.2s background-color;
+}
+
+button:hover {
+  background-color: var(--navy);
+  border: 1px solid var(--navy);
+  color: var(--white);
+}
+
+button:active {
+  box-shadow: inset 0 0 5px #000000
+}
+
+
+.App_review_button {
+  padding: 20px;
+  text-align: center;
+  border: 1px solid var(--navy);
+  background-color: var(--navy);
+  color: white;
+}
+
+.App_review_button:hover {
+  box-shadow: 0 0 8px 1px var(--blue);
+  border: 1px solid var(--blue);
 }
