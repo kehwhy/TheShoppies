@@ -1,0 +1,23 @@
+.SearchResultTable {
+    padding: 15px;
+    width: 85%;
+    margin: auto;
+}
+
+.SearchResultTable_table {
+    color: var(--navy)
+}
+
+.search_result_table_row {
+    border: none;
+}
+
+.search_result_table_header {
+    border: none;
+    background-color: var(--navy);
+    
+}
+
+.search_result_table_header span{
+    color: white;
+}

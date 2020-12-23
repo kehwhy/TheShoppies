@@ -1,0 +1,43 @@
+@import "../../root.css";
+
+.NomineeList {
+    width: 100%;
+    background-color: var(--lightblue);
+    color: var(--white);
+}
+
+.NomineeList_title {
+    padding: 25px;
+    color: var(--white);
+}
+
+.NomineeList_empty{
+    padding: 25px;
+}
+
+.NomineeList_table {
+    padding: 25px;
+    color: var(--white);
+}
+
+.NomineeList_table span {
+    color: var(--white)
+}
+
+.NomineeList_remove_button {
+    border-radius: 25px;
+}
+
+.NomineeList_clear_button_wrapper {
+    padding: 20px;
+}
+
+.NomineeList_clear_button {
+    border-radius: 25px;
+    height: 24px;
+    background-color: var(--red)
+}
+
+.NomineeList_clear_button:hover {
+    background-color: var(--red)
+}

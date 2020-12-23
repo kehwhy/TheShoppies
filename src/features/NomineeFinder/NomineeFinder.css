@@ -1,0 +1,18 @@
+.NomineeFinder_search_wrapper {
+    padding: 10px;
+}
+
+.NomineeFinder_search {
+    width: 50%;
+    padding: 20px;
+    border-radius: 25px;
+}
+
+.NomineeFinder_load_button_wrapper {
+    padding: 10px;
+    padding-bottom: 25px;
+}
+
+.NomineeFinder_load_button {
+    border-radius: 25px;
+}

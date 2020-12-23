@@ -1,5 +1,8 @@
+@import "./root.css";
+
 .App {
   text-align: center;
+  justify-content: center;
 }
 
 .App-logo {
@@ -7,23 +10,26 @@
   pointer-events: none;
 }
 
+.App_heading {
+  width: 35%;
+  padding: 50px;
+  padding-bottom: 10px;
+}
+
+.App_review_button {
+  text-align: center;
+  border-radius: 25px;
+}
+
+.App_review_button_wrapper {
+  padding: 10px;
+  padding-bottom: 25px;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-float infinite 3s ease-in-out;
   }
-}
-
-.App-header {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-}
-
-.App-link {
-  color: rgb(112, 76, 182);
 }
 
 @keyframes App-logo-float {
