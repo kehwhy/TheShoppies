@@ -1,0 +1,11 @@
+.ConfettiContainer {
+    text-align: center;
+    justify-content: center;
+}
+
+.ConfettiContainer_wrapper {
+    width: 10px;
+    height: 10px;
+    position: fixed;
+    top: 0;
+}

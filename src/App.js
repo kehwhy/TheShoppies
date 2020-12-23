@@ -1,7 +1,7 @@
-import { Button, Position, SideSheet } from 'evergreen-ui';
+import { Position, SideSheet } from 'evergreen-ui';
 import React, { useState } from 'react';
 import './App.css';
-import Banner from './features/Banner/Banner'
+import ConfettiContainer from './features/ConfettiContainer/ConfettiContainer'
 import NomineeFinder from './features/NomineeFinder/NomineeFinder';
 import NomineeList from './features/NomineeList/NomineeList';
 import title from './title.png'
@@ -12,7 +12,7 @@ function App() {
   
   return (
     <div className="App">
-      <Banner />
+      <ConfettiContainer />
       <img className="App_heading" src={title} alt="The Shoppies"></img>
       <SideSheet
         position={Position.RIGHT}
@@ -22,12 +22,12 @@ function App() {
         <NomineeList/>
       </SideSheet>
       <div className="App_review_button_wrapper">
-      <Button
+      <button
       height={38}
       className="App_review_button"
       onClick={() => setIsShown(true)}>
         Review the Nominees
-      </Button>
+      </button>
       </div>
       <NomineeFinder />
     </div>

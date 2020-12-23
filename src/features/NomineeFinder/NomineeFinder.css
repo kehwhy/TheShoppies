@@ -13,6 +13,15 @@
     padding-bottom: 25px;
 }
 
-.NomineeFinder_load_button {
-    border-radius: 25px;
-}
+.NomineeFinder_load_button  {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid var(--navy);
+    background-color: var(--navy);
+    color: white;
+  }
+  
+  .NomineeFinder_load_button:hover  {
+    box-shadow: 0 0 8px 1px var(--blue);
+    border: 1px solid var(--blue);
+  }

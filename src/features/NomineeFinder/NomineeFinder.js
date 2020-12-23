@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState} from 'react';
 import { useDispatch, useSelector } from "react-redux"
-import { Button, Paragraph, TextInput } from 'evergreen-ui';
+import { Paragraph, TextInput } from 'evergreen-ui';
 import { clearSearchResults, addSearchResults, setTotalResults, selectSearchTotal, setSearchResults } from "./searchResultsSlice"
 import SearchResultTable from './SearchResultsTable/SearchResultTable';
 import './NomineeFinder.css'
@@ -73,12 +73,12 @@ const NomineesSearch = () => {
             {totalResults > 10
             ? 
             <div className="NomineeFinder_load_button_wrapper">
-            <Button 
+            <button 
             className="NomineeFinder_load_button"
             onClick={loadNextPage}
             disabled={pageNumber >= totalResults/10}
             >Load More
-            </Button>
+            </button>
             </div>
             : <div/>
             }
