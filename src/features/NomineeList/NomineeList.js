@@ -1,4 +1,4 @@
-import { Heading, MinusIcon, Paragraph, Table } from 'evergreen-ui'
+import { Paragraph, Table } from 'evergreen-ui'
 import React from 'react'
 import { useDispatch, useSelector } from "react-redux"
 import { clearNominees, removeNominee, selectNominees } from '../NomineeList/nomineeListSlice'

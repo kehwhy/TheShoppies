@@ -16,11 +16,12 @@
   padding-bottom: 25px;
 }
 
-.App_sidesheet {
-  width: 10%;
+.App_dialog div {
+  background-color: var(--blue);
 }
 
 button {
+  cursor: pointer;
   border-radius: 25px;
   height: 28px;
   background-color: transparent;

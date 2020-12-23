@@ -4,6 +4,7 @@ export const nomineeListSlice = createSlice({
   name: 'NomineeList',
   initialState: {
     value: [],
+    isDialogShown: false
   },
   reducers: {
     addNominee: (state, action) => {
@@ -16,13 +17,21 @@ export const nomineeListSlice = createSlice({
       state.value = action.payload;
     },
     clearNominees: (state) => {
-        state.value = []
+      state.value = []
+    },
+    openDialog: (state) => {
+      state.isDialogShown = true;
+    }, 
+    closeDialog: (state) => {
+      state.isDialogShown = false
     }
   },
 });
 
-export const { addNominee, removeNominee, setNominees, clearNominees } = nomineeListSlice.actions;
+export const { addNominee, removeNominee, setNominees, clearNominees, openDialog, closeDialog } = nomineeListSlice.actions;
 
 export const selectNominees = state => state.nominees.value;
+
+export const selectIsDialogShown = state => state.nominees.isDialogShown
 
 export default nomineeListSlice.reducer;

@@ -2,15 +2,19 @@ import React from 'react'
 import { AddIcon, IconButton, Table } from 'evergreen-ui'
 import { useDispatch, useSelector } from 'react-redux'
 import { selectSearchResults } from "../searchResultsSlice";
-import { selectNominees, addNominee } from "../../NomineeList/nomineeListSlice"
+import { selectNominees, addNominee, openDialog } from "../../NomineeList/nomineeListSlice"
 import "./SearchResultsTable.css"
 
 const SearchResultTable = () => {
     const dispatch = useDispatch()
     const results = useSelector(selectSearchResults)
     const nominees = useSelector(selectNominees)
+    
     const nominateMovie = (movie) => {
         dispatch(addNominee(movie))
+        if (nominees.length === 5) {
+            dispatch(openDialog())
+        }
     }
 
     return (
