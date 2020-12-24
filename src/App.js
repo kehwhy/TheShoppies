@@ -12,12 +12,6 @@ function App() {
   const dispatch = useDispatch()
   const isShown = useSelector(selectIsDialogShown)
 
-  console.log(localStorage.getItem("MyNomineeList"))
-
-  if (localStorage.getItem("MyNomineeList")){
-    dispatch(setNominees(JSON.parse(localStorage.getItem("MyNomineeList"))))
-  }
-
   return (
     <div className="App">
       <ConfettiContainer />

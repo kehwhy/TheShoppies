@@ -1,9 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { loadNominees } from '../../app/localstorage';
 
 export const nomineeListSlice = createSlice({
   name: 'NomineeList',
   initialState: {
-    value: [],
+    value: loadNominees(),
     isDialogShown: false
   },
   reducers: {
