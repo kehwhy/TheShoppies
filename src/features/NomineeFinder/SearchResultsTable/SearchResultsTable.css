@@ -37,3 +37,21 @@
 
 }
 
+.add_button {
+    cursor: pointer;
+    border-radius: 25px;
+    height: 28px;
+    background-color: transparent;
+    display: inline-flex;
+    align-items: center;
+    color: var(--navy);
+    border: 1px solid var(--white);
+    transition: 0.2s background-color;
+  }
+  
+.add_button:hover {
+    background-color: var(--navy);
+    border: 1px solid var(--navy);
+    color: var(--navy);
+}
+

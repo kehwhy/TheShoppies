@@ -1,5 +1,5 @@
 import React from 'react'
-import { AddIcon, Badge, IconButton, Table } from 'evergreen-ui'
+import { AddIcon, Badge, Button, IconButton, Table } from 'evergreen-ui'
 import { useDispatch, useSelector } from 'react-redux'
 import { selectSearchResults } from "../searchResultsSlice";
 import { selectNominees, addNominee, openDialog } from "../../NomineeList/nomineeListSlice"
@@ -42,13 +42,14 @@ const SearchResultTable = () => {
                         <Table.Cell >
                             {(!!nominees.filter(nominee => nominee.imdbID === movie.imdbID).length)
                             ? <Badge color="blue">Nominated</Badge>
-                            : <IconButton 
+                            : <Button 
+                            className="add_button" 
                             onClick={(e) => nominateMovie(movie)} 
-                            icon={AddIcon} 
+                            iconBefore={AddIcon} 
                             height={24} 
                             disabled={nominees.length >= 5}
                             appearance='minimal' 
-                            />}
+                            >Nominate</Button>}
                         </Table.Cell>
                     </Table.Row>
                     ))}
