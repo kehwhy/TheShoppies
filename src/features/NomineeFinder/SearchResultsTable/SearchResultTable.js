@@ -25,21 +25,21 @@ const SearchResultTable = () => {
         results && results.length
         ? <div className="SearchResultTable">
             <Table className="SearchResultTable_table">
-                <Table.Head height={40} className="search_result_table_header">
-                    <Table.TextHeaderCell>
+                <Table.Head height={45} className="search_result_table_header">
+                    <Table.TextHeaderCell textProps={{size: 500}} flex="50%">
                     Movie Title
                     </Table.TextHeaderCell>
-                    <Table.TextHeaderCell>
+                    <Table.TextHeaderCell textProps={{size: 500}}>
                     Year of Release
                     </Table.TextHeaderCell>
-                    <Table.TextHeaderCell width={200} flex="none"/>
+                    <Table.TextHeaderCell />
                 </Table.Head>
-                <Table.Body>
+                <Table.Body textProps={{size: 500}}>
                     {results.map(movie => (
-                    <Table.Row height={40} className="search_result_table_row" key={movie.imdbID}>
-                        <Table.TextCell>{movie.Title}</Table.TextCell>
-                        <Table.TextCell>{movie.Year}</Table.TextCell>
-                        <Table.Cell width={200} flex="none">
+                    <Table.Row height={45} className="search_result_table_row" key={movie.imdbID}>
+                        <Table.TextCell textProps={{size: 500}} flex="50%">{movie.Title}</Table.TextCell>
+                        <Table.TextCell textProps={{size: 500}}>{movie.Year}</Table.TextCell>
+                        <Table.Cell >
                             {(!!nominees.filter(nominee => nominee.imdbID === movie.imdbID).length)
                             ? <Badge color="blue">Nominated</Badge>
                             : <IconButton 
