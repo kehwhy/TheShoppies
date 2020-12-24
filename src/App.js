@@ -1,11 +1,11 @@
-import { Dialog, Position } from 'evergreen-ui';
-import React, { useState } from 'react';
+import { Dialog, Paragraph, Position } from 'evergreen-ui';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './App.css';
 import ConfettiContainer from './features/ConfettiContainer/ConfettiContainer'
 import NomineeFinder from './features/NomineeFinder/NomineeFinder';
 import NomineeList from './features/NomineeList/NomineeList';
-import { closeDialog, openDialog, selectIsDialogShown, selectNominees } from './features/NomineeList/nomineeListSlice';
+import { closeDialog, openDialog, selectIsDialogShown } from './features/NomineeList/nomineeListSlice';
 import title from './title.png'
 
 function App() {
@@ -32,7 +32,7 @@ function App() {
       height={38}
       className="App_review_button"
       onClick={() => dispatch(openDialog())}>
-        Review the Nominees
+        <Paragraph className="App_review_button_text" size={500}>Review the Nominees</Paragraph>
       </button>
       </div>
       <NomineeFinder />

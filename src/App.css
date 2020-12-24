@@ -16,8 +16,8 @@
   padding-bottom: 25px;
 }
 
-.App_dialog div {
-  background-color: var(--blue);
+.App_review_button_text {
+  color: white;
 }
 
 button {

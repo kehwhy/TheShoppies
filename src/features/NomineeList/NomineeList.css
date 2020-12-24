@@ -1,15 +1,10 @@
 
 .NomineeList {
     width: 100%;
-}
-
-.NomineeList_title {
-    padding: 25px;
-    color: var(--blue);
+    justify-content: center;
 }
 
 .NomineeList_empty{
-    padding: 25px;
     color: var(--blue);
 }
 

@@ -1,4 +1,4 @@
-import { Paragraph, Table } from 'evergreen-ui'
+import { Heading, Paragraph, Table } from 'evergreen-ui'
 import React from 'react'
 import { useDispatch, useSelector } from "react-redux"
 import { clearNominees, removeNominee, selectNominees } from '../NomineeList/nomineeListSlice'
@@ -12,6 +12,7 @@ const NomineeList = () => {
         <div className="NomineeList">
             {nominees.length
             ? <div>
+                <Heading size={400}>{`You have nominated ${nominees.length}/5 movies!`} </Heading>
                 <Table className="NomineeList_table">
                 <Table.Body>
                 {nominees.map(nominee => (
