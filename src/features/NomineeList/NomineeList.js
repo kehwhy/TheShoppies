@@ -8,6 +8,10 @@ const NomineeList = () => {
     const nominees = useSelector(selectNominees)
     const dispatch = useDispatch()
 
+    const saveNominees = () => {
+        localStorage.setItem("MyNomineeList", JSON.stringify(nominees))
+    }
+
     return (
         <div className="NomineeList">
             {nominees.length
@@ -35,6 +39,12 @@ const NomineeList = () => {
                 className="NomineeList_clear_button"
                 onClick={()=> dispatch(clearNominees())}
                 > Clear Nominee List</button>
+            </div>
+            <div className="NomineeList_save_button_wrapper">
+                <button 
+                className="NomineeList_save_button"
+                onClick={()=> saveNominees()}
+                > Save Nominee List</button>
             </div>
             </div>
             : <Paragraph className="NomineeList_empty" size={800}>Nominate movies for The Shoppies using the search bar and list.</Paragraph>}

@@ -5,12 +5,13 @@ import './App.css';
 import ConfettiContainer from './features/ConfettiContainer/ConfettiContainer'
 import NomineeFinder from './features/NomineeFinder/NomineeFinder';
 import NomineeList from './features/NomineeList/NomineeList';
-import { closeDialog, openDialog, selectIsDialogShown } from './features/NomineeList/nomineeListSlice';
+import { closeDialog, openDialog, selectIsDialogShown, setNominees } from './features/NomineeList/nomineeListSlice';
 import title from './title.png'
 
 function App() {
   const dispatch = useDispatch()
   const isShown = useSelector(selectIsDialogShown)
+
   return (
     <div className="App">
       <ConfettiContainer />
