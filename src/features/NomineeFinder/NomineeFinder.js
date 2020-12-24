@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState} from 'react';
 import { useDispatch, useSelector } from "react-redux"
-import { Paragraph, TextInput } from 'evergreen-ui';
+import { Checkbox, Paragraph, TextInput } from 'evergreen-ui';
 import { clearSearchResults, addSearchResults, setTotalResults, selectSearchTotal, setSearchResults } from "./searchResultsSlice"
 import SearchResultTable from './SearchResultsTable/SearchResultTable';
 import './NomineeFinder.css'
@@ -9,6 +9,8 @@ import './NomineeFinder.css'
 const NomineesSearch = () => {
     const totalResults = useSelector(selectSearchTotal)
     const dispatch = useDispatch()
+
+    const [isLiveSearchEnabled, enableLiveSearch] = useState(false)
 
     const [errorMessage, setErrorMessage] = useState("Please enter at least 3 characters to begin searching.")
     const [pageNumber, setPageNumber] = useState(1)
@@ -40,6 +42,7 @@ const NomineesSearch = () => {
                 dispatch(setTotalResults(0))
             }
             else {
+                setErrorMessage("")
                 dispatch(addSearchResults(data.Search))
                 dispatch(setTotalResults(data.totalResults))
                 setPageNumber(pageNumber + 1)
@@ -56,28 +59,40 @@ const NomineesSearch = () => {
             onChange = {e => {
                 setPageNumber(1)
                 setSearchValue(e.target.value)
-                if (e.target.value.length > 2) {
-                    setErrorMessage("")
-                    updateSearchList(e.target.value, pageNumber)
-                }
-                else {
-                    setErrorMessage("Please enter at least 3 characters to begin searching.")
-                    dispatch(setTotalResults(0))
-                    dispatch(clearSearchResults())
+                if (isLiveSearchEnabled) {
+                    if (e.target.value.length > 2) {
+                        updateSearchList(e.target.value, pageNumber)
+                    }
+                    else {
+                        setErrorMessage("Please enter at least 3 characters to begin searching.")
+                        dispatch(setTotalResults(0))
+                        dispatch(clearSearchResults())
+                    }
                 }
             }}
+            onKeyPress = {e => {
+                if (e.charCode === 13) {
+                    updateSearchList(searchValue, pageNumber)
+                }
+            }}
+            />
+            <Checkbox
+            className="NomineeFinder_checkbox"
+            onChange={() => enableLiveSearch(!isLiveSearchEnabled)} 
+            checked={isLiveSearchEnabled} 
+            label="Enable Live Search"
             />
             </div>
             <Paragraph className="NomineeFinder_error">{errorMessage}</Paragraph>
             <SearchResultTable /> 
-            {totalResults > 10
+            {totalResults > 10 && !errorMessage.length
             ? 
             <div className="NomineeFinder_load_button_wrapper">
             <button 
             className="NomineeFinder_load_button"
             onClick={loadNextPage}
             disabled={pageNumber >= totalResults/10}
-            >Load More
+            > <Paragraph className="NomineeFinder_load_button_text" size={400} >Load More </Paragraph>
             </button>
             </div>
             : <div/>

@@ -1,11 +1,13 @@
 .SearchResultTable {
-    padding: 15px;
-    width: 85%;
+    min-width: 350px;
+    width: 75%;
     margin: auto;
 }
 
 .SearchResultTable_table {
-    color: var(--navy)
+    color: var(--navy);
+    padding: 15px;
+    justify-content: left;
 }
 
 .search_result_table_row {
@@ -15,9 +17,23 @@
 .search_result_table_header {
     border: none;
     background-color: var(--navy);
+    padding-right: 0;
     
 }
 
 .search_result_table_header span{
     color: white;
 }
+
+.search_result_table_row div{
+    text-align: left;
+    justify-content: center;
+    font-size: "24px";
+}
+
+.search_result_table_header div{
+    text-align: left;
+    justify-content: center;
+
+}
+

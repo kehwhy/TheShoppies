@@ -1,35 +1,28 @@
 
 .NomineeList {
     width: 100%;
-    background-color: var(--blue);
-    color: var(--white);
-}
-
-.NomineeList_title {
-    padding: 25px;
-    color: var(--white);
+    justify-content: center;
 }
 
 .NomineeList_empty{
-    padding: 25px;
-    color: var(--white);
+    color: var(--blue);
 }
 
 .NomineeList_table {
     padding: 25px;
-    color: var(--white);
+    color: var(--blue);
 }
 
 .NomineeList_table span {
-    color: var(--white)
+    color: var(--blue)
 }
 
 .NomineeList_remove_button {
     height: 18px;
     font-size: 12px;
     padding: 10px;
-    color: var(--white);
-    border: 1px solid var(--white);
+    color: var(--blue);
+    border: 1px solid var(--blue);
     transition: 0.2s background-color;
 }
 
@@ -49,8 +42,8 @@
 
 .NomineeList_clear_button {
     padding: 20px;
-    color: var(--white);
-    border: 1px solid var(--white);
+    color: var(--blue);
+    border: 1px solid var(--blue);
     transition: 0.2s background-color;
 }
 

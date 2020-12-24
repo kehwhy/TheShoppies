@@ -1,4 +1,4 @@
-import { Heading, MinusIcon, Paragraph, Table } from 'evergreen-ui'
+import { Heading, Paragraph, Table } from 'evergreen-ui'
 import React from 'react'
 import { useDispatch, useSelector } from "react-redux"
 import { clearNominees, removeNominee, selectNominees } from '../NomineeList/nomineeListSlice'
@@ -9,23 +9,21 @@ const NomineeList = () => {
     const dispatch = useDispatch()
 
     return (
-        <div className="NomineeList" style={{height:`${window.innerHeight}px`}}>
-            <Heading className="NomineeList_title" size={700}>Nominees</Heading>
+        <div className="NomineeList">
             {nominees.length
             ? <div>
+                <Heading size={400}>{`You have nominated ${nominees.length}/5 movies!`} </Heading>
                 <Table className="NomineeList_table">
                 <Table.Body>
                 {nominees.map(nominee => (
                     <Table.Row key={nominee.imdbID}>
                         <Table.TextCell>{nominee.Title}</Table.TextCell>
                         <Table.TextCell>{nominee.Year}</Table.TextCell>
-                        <Table.TextCell width={50}>
+                        <Table.TextCell >
                             <div className="NomineeList_remove_button_wrapper">
                                 <button 
                                 className="NomineeList_remove_button"
-                                onClick={() => dispatch(removeNominee(nominee))} 
-                                icon={MinusIcon}
-                                height={24}
+                                onClick={() => dispatch(removeNominee(nominee))}
                                 >Remove</button>
                             </div>
                         </Table.TextCell>

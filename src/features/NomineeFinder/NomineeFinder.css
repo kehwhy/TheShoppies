@@ -1,5 +1,10 @@
+.NomineeFinder {
+    justify-content: center;
+}
+
 .NomineeFinder_search_wrapper {
     padding: 10px;
+    display: inline;
 }
 
 .NomineeFinder_search {
@@ -18,10 +23,19 @@
     text-align: center;
     border: 1px solid var(--navy);
     background-color: var(--navy);
-    color: white;
-  }
+}
   
-  .NomineeFinder_load_button:hover  {
+.NomineeFinder_load_button:hover  {
     box-shadow: 0 0 8px 1px var(--blue);
     border: 1px solid var(--blue);
-  }
+}
+
+.NomineeFinder_load_button_text {
+    color: white;
+}
+
+.NomineeFinder_checkbox {
+    margin: auto;
+    padding: 10px;
+    width: 200px;
+}
