@@ -18,14 +18,16 @@ const SearchResultTable = () => {
      * @param {Object} movie 
      */
     const nominateMovie = (movie) => {
-        dispatch(addNominee(movie))
-        
-        // delay to allow confetti to fall before popup
-        setTimeout(() => {
-            if (nominees.length === 5) {
+        if (nominees.length === 4) {
+            dispatch(addNominee(movie))
+            // delay to allow confetti to fall before popup
+            setTimeout(() => {
                 dispatch(openDialog())
-            }
-        }, 1000)
+            }, 1000)     
+        }
+        else {
+            dispatch(addNominee(movie))
+        }
         
     }
 
@@ -34,20 +36,20 @@ const SearchResultTable = () => {
         ? <div className="SearchResultTable">
             <Table className="SearchResultTable_table">
                 <Table.Head height={45} className="search_result_table_header">
-                    <Table.TextHeaderCell textProps={{size: 500}} flex="50%">
+                    <Table.TextHeaderCell textProps={{size: 400}} flex="45%">
                     Movie Title
                     </Table.TextHeaderCell>
-                    <Table.TextHeaderCell textProps={{size: 500}}>
+                    <Table.TextHeaderCell textProps={{size: 400}} flex="20%">
                     Year of Release
                     </Table.TextHeaderCell>
-                    <Table.TextHeaderCell />
+                    <Table.TextHeaderCell flex="35%"/>
                 </Table.Head>
-                <Table.Body textProps={{size: 500}}>
+                <Table.Body textProps={{size: 400}}>
                     {results.map(movie => (
                     <Table.Row height={45} className="search_result_table_row" key={movie.imdbID}>
-                        <Table.TextCell textProps={{size: 500}} flex="50%">{movie.Title}</Table.TextCell>
-                        <Table.TextCell textProps={{size: 500}}>{movie.Year}</Table.TextCell>
-                        <Table.Cell >
+                        <Table.TextCell textProps={{size: 400}} flex="45%">{movie.Title}</Table.TextCell>
+                        <Table.TextCell textProps={{size: 400}} flex="20%">{movie.Year}</Table.TextCell>
+                        <Table.Cell flex="35%">
                             {(!!nominees.filter(nominee => nominee.imdbID === movie.imdbID).length)
                             ? <Badge color="blue">Nominated</Badge>
                             : <Button 

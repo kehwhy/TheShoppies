@@ -8,9 +8,19 @@
 }
 
 .NomineeFinder_search {
-    width: 50%;
+    width: 40%;
     padding: 20px;
     border-radius: 25px;
+    display: inline;
+}
+
+.NomineeFinder_search_button {
+    display: inline;
+}
+
+.NomineeFinder_search_button_wrapper {
+    display: inline;
+    padding: 5px;
 }
 
 .NomineeFinder_load_button_wrapper {
@@ -32,10 +42,4 @@
 
 .NomineeFinder_load_button_text {
     color: white;
-}
-
-.NomineeFinder_checkbox {
-    margin: auto;
-    padding: 10px;
-    width: 200px;
 }

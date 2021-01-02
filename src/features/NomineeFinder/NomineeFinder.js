@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState} from 'react';
 import { useDispatch, useSelector } from "react-redux"
-import { Paragraph, TextInput } from 'evergreen-ui';
+import { IconButton, Paragraph, SearchIcon, TextInput } from 'evergreen-ui';
 import { clearSearchResults, addSearchResults, setTotalResults, selectSearchTotal, setSearchResults } from "../SearchResultsTable/searchResultsSlice"
 import SearchResultTable from '../SearchResultsTable/SearchResultsTable';
 import './NomineeFinder.css'
@@ -26,9 +26,13 @@ const NomineesFinder = () => {
      * @param {String} searchParams value to search for in OMDB
      */
     const updateSearchList = (searchParams) => {
+
         fetch(`https://www.omdbapi.com/?apikey=793ba15b&type=movie&s=${searchParams}`)
         .then(res => res.json())
         .then((data) => {
+
+            setPageNumber(1)
+
             if (!data.Search){
                 setErrorMessage("No Results Found.")
                 dispatch(clearSearchResults())
@@ -58,24 +62,32 @@ const NomineesFinder = () => {
     return (
         <div className="NomineeFinder">
             <div className="NomineeFinder_search_wrapper">
-            <TextInput 
-            className="NomineeFinder_search"
-            placeholder="Find movie to nominate..."
-            onChange = {e => {
-                setSearchValue(e.target.value)
-            }}
-            onKeyPress = {e => {
-                if (e.charCode === 13) {
-                    if (searchValue.length < 3) {
-                        setErrorMessage("Please enter at least 3 characters to begin searching.")
+                <TextInput 
+                className="NomineeFinder_search"
+                placeholder="Find movie to nominate..."
+                onChange = {e => {
+                    setSearchValue(e.target.value)
+                }}
+                onKeyPress = {e => {
+                    if (e.charCode === 13) {
+                        if (searchValue.length < 3) {
+                            setErrorMessage("Please enter at least 3 characters to begin searching.")
+                        }
+                        else {
+                            updateSearchList(searchValue) 
+                        }
                     }
-                    else {
-                        setPageNumber(1)
-                        updateSearchList(searchValue) 
-                    }
-                }
-            }}
-            />
+                }}
+                />
+                <div className="NomineeFinder_search_button_wrapper">
+                    <IconButton 
+                    className="NomineeFinder_search_button" 
+                    appearance='minimal' 
+                    icon={SearchIcon} 
+                    height={28}
+                    onClick={() => updateSearchList(searchValue) }
+                    />
+                </div>
             </div>
             <Paragraph className="NomineeFinder_error">{errorMessage}</Paragraph>
             <SearchResultTable /> 
