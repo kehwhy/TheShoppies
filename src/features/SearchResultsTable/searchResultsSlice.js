@@ -1,20 +1,23 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+/**
+ * Redux slice for search results including name, initial state, reducers, actions, and selectors
+ */
 export const searchResultsSlice = createSlice({
   name: 'Search Results',
   initialState: {
-    value: [],
+    list: [],
     totalResults: 0
   },
   reducers: {
     setSearchResults: (state, action) => {
-      state.value = action.payload;
+      state.list = action.payload;
     },
     clearSearchResults: (state) => {
-        state.value = []
+        state.list = []
     }, 
     addSearchResults: (state, action) => {
-      state.value = state.value.concat(action.payload);
+      state.list = state.list.concat(action.payload);
     },
     setTotalResults: (state, action) => {
       state.totalResults = action.payload
@@ -24,7 +27,7 @@ export const searchResultsSlice = createSlice({
 
 export const { setSearchResults, clearSearchResults, addSearchResults, setTotalResults } = searchResultsSlice.actions;
 
-export const selectSearchResults = state => state.searchResults.value;
+export const selectSearchResults = state => state.searchResults.list;
 
 export const selectSearchTotal = state => state.searchResults.totalResults;
 

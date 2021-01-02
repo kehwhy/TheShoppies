@@ -2,19 +2,21 @@ import { Heading, Paragraph, Table } from 'evergreen-ui'
 import React from 'react'
 import { useDispatch, useSelector } from "react-redux"
 import { clearNominees, removeNominee, selectNominees } from '../NomineeList/nomineeListSlice'
+import { saveNominees } from '../../app/localstorage'
 import './NomineeList.css'
 
 const NomineeList = () => {
+    // selecting data from the store
     const nominees = useSelector(selectNominees)
-    const dispatch = useDispatch()
 
-    const saveNominees = () => {
-        localStorage.setItem("MyNomineeList", JSON.stringify(nominees))
-    }
+    // dispatch to the store
+    const dispatch = useDispatch()
 
     return (
         <div className="NomineeList">
-            {nominees.length
+            {
+            // contidionally renders table or message to user
+            nominees.length
             ? <div>
                 <Heading size={400}>{`You have nominated ${nominees.length}/5 movies!`} </Heading>
                 <Table className="NomineeList_table">
@@ -40,14 +42,14 @@ const NomineeList = () => {
                 onClick={()=> dispatch(clearNominees())}
                 > Clear Nominee List</button>
             </div>
+            </div>
+            : <Paragraph className="NomineeList_empty" size={800}>Nominate movies for The Shoppies using the search bar and list.</Paragraph>}
             <div className="NomineeList_save_button_wrapper">
                 <button 
                 className="NomineeList_save_button"
-                onClick={()=> saveNominees()}
+                onClick={()=> saveNominees(nominees)}
                 > Save Nominee List</button>
             </div>
-            </div>
-            : <Paragraph className="NomineeList_empty" size={800}>Nominate movies for The Shoppies using the search bar and list.</Paragraph>}
         </div>
     )
 }

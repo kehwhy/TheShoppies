@@ -1,9 +1,6 @@
 .ConfettiContainer {
     text-align: center;
-    justify-content: center;
-}
-
-.ConfettiContainer_wrapper {
+    justify-content: center;    
     width: 10px;
     height: 10px;
     position: fixed;

@@ -1,6 +1,9 @@
+/**
+ * Loads nominee list from local storage
+ */
 export const loadNominees = () => {
     try {
-      const serializedState = localStorage.getItem('MyNomineeList');
+      const serializedState = localStorage.getItem('NomineeList');
       if (serializedState === null) {
         return [];
       }
@@ -10,10 +13,14 @@ export const loadNominees = () => {
     }
 };
 
-export const saveState = (nominees) => {
+/**
+ * Saves provided nominee list to local storage
+ * @param {Object[]} nominees 
+ */
+export const saveNominees = (nominees) => {
     try {
       const serializedState = JSON.stringify(nominees);
-      localStorage.setItem('MyNomineeList', serializedState);
+      localStorage.setItem('NomineeList', serializedState);
     } catch {
     }
   };

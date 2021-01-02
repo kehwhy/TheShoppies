@@ -1,20 +1,28 @@
 import React from 'react'
-import { AddIcon, Badge, Button, IconButton, Table } from 'evergreen-ui'
+import { AddIcon, Badge, Button, Table } from 'evergreen-ui'
 import { useDispatch, useSelector } from 'react-redux'
-import { selectSearchResults } from "../searchResultsSlice";
-import { selectNominees, addNominee, openDialog } from "../../NomineeList/nomineeListSlice"
+import { selectSearchResults } from "./searchResultsSlice";
+import { selectNominees, addNominee, openDialog } from "../NomineeList/nomineeListSlice"
 import "./SearchResultsTable.css"
 
 const SearchResultTable = () => {
+    // dispatch to store
     const dispatch = useDispatch()
+
+    // selecting from store
     const results = useSelector(selectSearchResults)
     const nominees = useSelector(selectNominees)
     
+    /**
+     * Add a movie to the list of nominees
+     * @param {Object} movie 
+     */
     const nominateMovie = (movie) => {
         dispatch(addNominee(movie))
         
+        // delay to allow confetti to fall before popup
         setTimeout(() => {
-            if (nominees.length === 4) {
+            if (nominees.length === 5) {
                 dispatch(openDialog())
             }
         }, 1000)

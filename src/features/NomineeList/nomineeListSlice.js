@@ -1,24 +1,26 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { loadNominees } from '../../app/localstorage';
 
+/**
+ * Redux slice for nominee list and showing nominee list dialog box 
+ * including name, initial state, reducers, actions, and selectors
+ */
 export const nomineeListSlice = createSlice({
   name: 'NomineeList',
   initialState: {
-    value: loadNominees(),
+    // loads nominees from local storage as initial list
+    list: loadNominees(),
     isDialogShown: false
   },
   reducers: {
     addNominee: (state, action) => {
-      state.value.push(action.payload);
+      state.list.push(action.payload);
     },
     removeNominee: (state, action) => {
-      state.value = state.value.filter(nominee => nominee.imdbID !== action.payload.imdbID);
-    },
-    setNominees: (state, action) => {
-      state.value = action.payload;
+      state.list = state.list.filter(nominee => nominee.imdbID !== action.payload.imdbID);
     },
     clearNominees: (state) => {
-      state.value = []
+      state.list = []
     },
     openDialog: (state) => {
       state.isDialogShown = true;
@@ -29,9 +31,9 @@ export const nomineeListSlice = createSlice({
   },
 });
 
-export const { addNominee, removeNominee, setNominees, clearNominees, openDialog, closeDialog } = nomineeListSlice.actions;
+export const { addNominee, removeNominee, clearNominees, openDialog, closeDialog } = nomineeListSlice.actions;
 
-export const selectNominees = state => state.nominees.value;
+export const selectNominees = state => state.nominees.list;
 
 export const selectIsDialogShown = state => state.nominees.isDialogShown
 
