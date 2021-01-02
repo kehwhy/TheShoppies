@@ -1,16 +1,14 @@
 import React from 'react'
 import { useState} from 'react';
 import { useDispatch, useSelector } from "react-redux"
-import { Checkbox, Paragraph, TextInput } from 'evergreen-ui';
-import { clearSearchResults, addSearchResults, setTotalResults, selectSearchTotal, setSearchResults } from "./searchResultsSlice"
-import SearchResultTable from './SearchResultsTable/SearchResultTable';
+import { Paragraph, TextInput } from 'evergreen-ui';
+import { clearSearchResults, addSearchResults, setTotalResults, selectSearchTotal, setSearchResults } from "../SearchResultsTable/searchResultsSlice"
+import SearchResultTable from '../SearchResultsTable/SearchResultTable';
 import './NomineeFinder.css'
 
 const NomineesSearch = () => {
     const totalResults = useSelector(selectSearchTotal)
     const dispatch = useDispatch()
-
-    const [isLiveSearchEnabled, enableLiveSearch] = useState(false)
 
     const [errorMessage, setErrorMessage] = useState("Please enter at least 3 characters to begin searching.")
     const [pageNumber, setPageNumber] = useState(1)
@@ -59,16 +57,6 @@ const NomineesSearch = () => {
             onChange = {e => {
                 setPageNumber(1)
                 setSearchValue(e.target.value)
-                if (isLiveSearchEnabled) {
-                    if (e.target.value.length > 2) {
-                        updateSearchList(e.target.value, pageNumber)
-                    }
-                    else {
-                        setErrorMessage("Please enter at least 3 characters to begin searching.")
-                        dispatch(setTotalResults(0))
-                        dispatch(clearSearchResults())
-                    }
-                }
             }}
             onKeyPress = {e => {
                 if (e.charCode === 13) {
@@ -76,18 +64,12 @@ const NomineesSearch = () => {
                 }
             }}
             />
-            <Checkbox
-            className="NomineeFinder_checkbox"
-            onChange={() => enableLiveSearch(!isLiveSearchEnabled)} 
-            checked={isLiveSearchEnabled} 
-            label="Enable Live Search"
-            />
             </div>
             <Paragraph className="NomineeFinder_error">{errorMessage}</Paragraph>
             <SearchResultTable /> 
-            {totalResults > 10 && !errorMessage.length
-            ? 
-            <div className="NomineeFinder_load_button_wrapper">
+            {
+            totalResults > 10 && !errorMessage.length
+            ? <div className="NomineeFinder_load_button_wrapper">
             <button 
             className="NomineeFinder_load_button"
             onClick={loadNextPage}
