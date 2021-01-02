@@ -17,7 +17,7 @@ const NomineesSearch = () => {
     const [searchValue, setSearchValue] = useState("")
 
     const updateSearchList = (searchParams, page) => {
-        fetch(`http://www.omdbapi.com/?apikey=793ba15b&type=movie&s=${searchParams}&page=${page}`)
+        fetch(`http://www.omdbapi.com/?apikey=793ba15b&type=movie&s=${searchParams}&page=${page}/`)
         .then(res => res.json())
         .then((data) => {
             if (!data.Search){
