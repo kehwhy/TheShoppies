@@ -37,13 +37,16 @@
 }
 
 .NomineeList_clear_button_wrapper {
-    padding: 20px;
-    display: inline;
+    padding: 5px;
+    float: left;
+    display: inline-block;
 }
 
 .NomineeList_save_button_wrapper {
-    padding: 20px;
-    display: inline;
+    padding: 5px;
+    float: left;
+    display: inline-block;
+
 }
 
 .NomineeList_clear_button {
