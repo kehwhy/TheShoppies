@@ -49,7 +49,7 @@ const NomineesFinder = () => {
      * Loads the next page of search results
      */
     const loadNextPage = () => {
-        fetch(`http://www.omdbapi.com/?apikey=793ba15b&type=movie&s=${searchValue}&page=${pageNumber + 1}`)
+        fetch(`https://www.omdbapi.com/?apikey=793ba15b&type=movie&s=${searchValue}&page=${pageNumber + 1}`)
         .then(res => res.json())
         .then((data) => {
             setErrorMessage("")
